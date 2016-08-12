@@ -1,72 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/white"
-              android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_30dp"
-        android:background="@color/light_gray"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/size_2dp">
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="@dimen/size_24dp"
-            android:layout_height="@dimen/size_24dp"
-            android:layout_marginEnd="@dimen/size_2dp"
-            android:layout_marginRight="@dimen/size_2dp"
-            android:clickable="true"
-            android:onClick="back"
-            android:src="@drawable/icon_back"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_30dp"
+            android:background="@color/light_gray"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/size_2dp">
 
-        <ImageView
-            android:layout_width="@dimen/size_24dp"
-            android:layout_height="@dimen/size_24dp"
-            android:layout_marginEnd="@dimen/size_2dp"
-            android:layout_marginRight="@dimen/size_2dp"
-            android:clickable="true"
-            android:onClick="forward"
-            android:src="@drawable/icon_forward"/>
+            <ImageView
+                android:layout_width="@dimen/size_24dp"
+                android:layout_height="@dimen/size_24dp"
+                android:layout_marginEnd="@dimen/size_2dp"
+                android:layout_marginRight="@dimen/size_2dp"
+                android:clickable="true"
+                android:contentDescription="@null"
+                android:onClick="back"
+                android:src="@drawable/icon_back"/>
 
-        <ImageView
-            android:layout_width="@dimen/size_24dp"
-            android:layout_height="@dimen/size_24dp"
-            android:layout_marginEnd="@dimen/size_2dp"
-            android:layout_marginRight="@dimen/size_2dp"
-            android:clickable="true"
-            android:onClick="refresh"
-            android:src="@drawable/icon_refresh"/>
+            <ImageView
+                android:layout_width="@dimen/size_24dp"
+                android:layout_height="@dimen/size_24dp"
+                android:layout_marginEnd="@dimen/size_2dp"
+                android:layout_marginRight="@dimen/size_2dp"
+                android:clickable="true"
+                android:contentDescription="@null"
+                android:onClick="forward"
+                android:src="@drawable/icon_forward"/>
 
-        <EditText
-            android:id="@+id/txt_url"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/size_24dp"
+            <ImageView
+                android:layout_width="@dimen/size_24dp"
+                android:layout_height="@dimen/size_24dp"
+                android:layout_marginEnd="@dimen/size_2dp"
+                android:layout_marginRight="@dimen/size_2dp"
+                android:clickable="true"
+                android:contentDescription="@null"
+                android:onClick="refresh"
+                android:src="@drawable/icon_refresh"/>
+
+            <EditText
+                android:id="@+id/txtUrl"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_24dp"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:hint="@string/hint_url"
+                android:imeOptions="flagNoFullscreen|flagNoExtractUi|actionGo"
+                android:inputType="textWebEmailAddress"
+                android:maxLines="1"
+                android:padding="@dimen/size_2dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/light_gray"/>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/size_4dp"
+            android:max="100"
+            android:progressDrawable="@drawable/progress_bar"
+            android:visibility="gone"/>
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/white"
-            android:hint="@string/hint_url"
-            android:imeOptions="flagNoFullscreen|flagNoExtractUi|actionGo"
-            android:inputType="textWebEmailAddress"
-            android:padding="@dimen/size_2dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/light_gray"/>
+            android:background="@android:color/white"/>
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/size_4dp"
-        android:progressDrawable="@drawable/progress_bar"
-        android:visibility="gone"/>
-
-    <WebView
-        android:id="@+id/webpage"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/white"/>
-
-</LinearLayout>
+</layout>
